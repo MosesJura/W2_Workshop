@@ -1,0 +1,37 @@
+┌─────────────────────────┐
+│         OWNER           │
+├─────────────────────────┤
+│ OwnerID      (PK)       │
+│ FirstName               │
+│ LastName                │
+│ Phone                   │
+│ Email                   │
+└────────────┬────────────┘
+             │
+             │ 1 : N
+             │ (one owner has many dogs)
+             │
+             ▼
+┌─────────────────────────┐
+│          DOG            │
+├─────────────────────────┤
+│ DogID        (PK)       │
+│ Name                    │
+│ Breed                   │
+│ Age                     │
+│ OwnerID      (FK) ──────┼──► OWNER.OwnerID
+└────────────┬────────────┘
+             │
+             │ 1 : N
+             │ (one dog has many walks)
+             │
+             ▼
+┌─────────────────────────┐          ┌─────────────────────────┐
+│          WALK           │          │         WALKER          │
+├─────────────────────────┤          ├─────────────────────────┤
+│ WalkID       (PK)       │          │ WalkerID     (PK)       │
+│ WalkDate                │◄─────────┤ FirstName               │
+│ DurationMinutes         │  1 : N   │ LastName                │
+│ DogID        (FK) ──────┼──► DOG   │ Phone                   │
+│ WalkerID     (FK) ──────┼──► WALKER│                         │
+└─────────────────────────┘          └─────────────────────────┘
