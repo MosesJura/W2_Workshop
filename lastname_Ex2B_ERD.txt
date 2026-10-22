@@ -1,3 +1,5 @@
+Logical model rendered as an Entity Relationship Diagram. 
+Each box = a table; lines = relationships
 ┌─────────────────────────┐
 │         OWNER           │
 ├─────────────────────────┤
@@ -35,3 +37,14 @@
 │ DogID        (FK) ──────┼──► DOG   │ Phone                   │
 │ WalkerID     (FK) ──────┼──► WALKER│                         │
 └─────────────────────────┘          └─────────────────────────┘
+
+Reading the diagram:
+An Owner can have zero or many Dogs → [0,n] on the Owner side.
+Each Dog must belong to exactly one Owner → [1,1] on the Dog side.
+A Dog can have zero or many Walks → [0,n].
+Each Walk must involve exactly one Dog and exactly one Walker → [1,1] on each.
+A Walker can have zero or many Walks → [0,n].
+
+
+
+
